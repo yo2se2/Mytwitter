@@ -1,0 +1,66 @@
+// Place all the styles related to the tweets controller here.
+// They will automatically be included in application.css.
+// You can use Sass (SCSS) here: https://sass-lang.com/
+
+
+//header のスタイル
+
+.container{
+    position:relative;
+    width: 100%;
+    //heightをwindowいっぱい表示する vh(viwewpoint height)
+    height:100vh;
+    overflow: hidden;
+
+}
+
+.header{
+    //margin:0 auto;は指定した要素の親要素に対しての中央寄せ
+ 
+    width:100%;
+    height:80px;
+    background-color:blue;
+    font-weight:bold;
+    
+    //flex-box
+    display:flex;
+    justify-content:space-between; //水平方向の揃え
+    align-items:center; //垂直方向の揃え
+
+    &__title{
+        margin-left:40px;
+    }
+
+    &__ul{
+        display:flex;
+        list-style:none;
+    }
+
+    &__li{
+        color:white;
+        margin-right:40px;
+        & > a {
+            color:white;
+            text-decoration: none !important;
+            text-align:center;
+        }
+
+    }
+
+}
+
+.post{
+  
+    
+    & .tweet-button{
+        cursor: pointer;
+        border-radius:50%;
+        height:40px;
+        width:40px;
+        background-color:red;
+        position:fixed;
+        right:60px;
+        bottom:60px;
+
+    }
+}

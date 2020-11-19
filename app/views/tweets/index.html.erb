@@ -1,0 +1,32 @@
+<div class="global-container">
+    <div class="container">
+        <header class="header">
+            <div class="header__title">
+                <span class="logo_My">My</span>
+                <span class="logo_Tweets">Tweets</span>
+            </div>
+        
+            <nav>
+                <ul class="header__ul">
+                    <li class="header__li">Home</li>
+                    <li class="header__li"><%= link_to 'Mypage', :controller => "tweets", :action => "mypage"%></li>
+                    <li class="header__li">Favorite</li>
+                </ul>
+            </nav>
+        </header>
+        <div class="post">
+            <button class="tweet-button"></button>
+        </div>
+    </div>
+    <div class="back-container">
+    
+    </div>
+    
+
+
+   
+
+</div>
+
+<%# Javascriptを適応 %>
+ <%= javascript_pack_tag 'tweet/index' %>
