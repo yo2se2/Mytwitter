@@ -3,6 +3,7 @@ Rails.application.routes.draw do
 
   get 'tweets/home' => 'tweets#index'
   get 'tweets/mypage' => 'tweets#mypage'
+  post 'tweets' => 'tweets#create'
 
-  root 'twitter#index' 
+  root to: 'tweets#index' 
 end

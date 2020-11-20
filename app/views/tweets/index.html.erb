@@ -14,12 +14,30 @@
                 </ul>
             </nav>
         </header>
-        <div class="post">
-            <button class="tweet-button"></button>
-        </div>
+
+        <button class="tweet-button"></button>
+
     </div>
-    <div class="back-container">
     
+    <!--  後ろに隠している，twitterの投稿機能  -->
+    <div class="back-container">
+
+        <!-- tweet投稿機能を閉じるボタン-->
+        <button class="close__btn">
+             <span></span>
+             <span></span>
+        </button>
+               
+        <div class="post-form">
+        <!-- railsのコードをhtmlに反映させる。-->
+            <%= form_for @tweet do |f| %>
+                <div class="field">
+                    <%= f.label :body %>
+                    <%= f.text_area :body, :size => 70 %>
+                </div>
+                <%= f.submit "Tweetする" %>
+            <% end %>        
+        </div>
     </div>
     
 

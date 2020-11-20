@@ -4,6 +4,9 @@
 
 
 //header のスタイル
+.global-container{
+    position:relative;
+}
 
 .container{
     position:relative;
@@ -11,6 +14,7 @@
     //heightをwindowいっぱい表示する vh(viwewpoint height)
     height:100vh;
     overflow: hidden;
+    z-index:10;
 
 }
 
@@ -49,10 +53,8 @@
 
 }
 
-.post{
-  
-    
-    & .tweet-button{
+//Tweet投稿ボタン  
+.tweet-button{
         cursor: pointer;
         border-radius:50%;
         height:40px;
@@ -61,6 +63,66 @@
         position:fixed;
         right:60px;
         bottom:60px;
+        outline:none !important;
 
     }
+
+//tweet投稿画面
+.back-container{
+    
+    position: absolute;
+    top:0;
+    left:0;
+    width:100%;
+    height:100vh;
+    opacity: 0;
+    transition:opacity 1s;
+    cursor:pointer;
+
+    & .close__btn{
+        position:fixed;
+        top:15%;
+        left:80%;
+        width:50px;
+        height:50px;
+        border:2px solid black;
+        background-color: white;
+        & > span {
+            background-color: black;
+            width: 100%;
+            height: 5px;
+            display: block;
+    
+            transition: transform 0.7s;
+
+            &:nth-child(1){
+                transform:   translateY(2.5px) rotate(135deg);
+                // margin-bottom: 18px;
+            }
+            &:nth-child(2) {
+                transform:  translateY(-2.5px)  rotate(-135deg);
+            }
+        }
+    }
+
+    &.up{
+        opacity:1;
+        z-index:20;
+        background-color:rgba(0, 0, 0, 0.5);
+        transition:opacity 1s;
+    } 
+    
+    & .post-form{
+        background-color:white;
+        position:absolute;
+        top:50%;
+        left:50%;
+        transform:translate(-50%,-50%);
+        width:50%;
+        height:50%;
+        border:2.0px solid black;
+        z-index:30;
+    }
+
+    
 }
