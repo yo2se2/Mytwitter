@@ -1,20 +1,30 @@
 <div class="global-container">
     <div class="container">
-        <header class="header">
-            <div class="header__title">
-                <span class="logo_My">My</span>
-                <span class="logo_Tweets">Tweets</span>
-            </div>
-        
-            <nav>
-                <ul class="header__ul">
-                    <li class="header__li">Home</li>
-                    <li class="header__li"><%= link_to 'Mypage', :controller => "tweets", :action => "mypage"%></li>
-                    <li class="header__li">Favorite</li>
-                </ul>
-            </nav>
-        </header>
 
+
+        <!-- tweet一覧を表示する。-->
+        <div class="tweets-container">
+        <h3>Tweet 一覧</h3>
+            <% @tweets.each do |t| %>
+                <div class="tweet">
+                    <div class="main-box">
+                        <div class="left-container">
+                            <div class="tweet-title">題目：<%= t.title %></div>
+                            <div class="tweet-content">ツイート：<%= t.body %></div>
+                        </div>
+                        <div class="right-container">
+                            <!-- ツイートの詳細画面に飛ぶ -->
+                            <%= link_to "詳細へ", tweet_path(t.id) %>
+                            <%= link_to "編集する", edit_tweet_path(t.id) %>
+                            <%= link_to "削除する", tweet_path(t.id), method: :delete %>
+                        </div>
+                    </div>
+                    <p class="time"><%= t.created_at %></p>
+                </div>
+            <% end %>
+            </div>
+
+        <!-- twitterの投稿画面を表示するボタン  -->
         <button class="tweet-button"></button>
 
     </div>
@@ -30,9 +40,14 @@
                
         <div class="post-form">
         <!-- railsのコードをhtmlに反映させる。-->
+            <p class="form-title">投稿フォーム</p>
             <%= form_for @tweet do |f| %>
+                <div class="title">
+                    <%= f.label :題目 %>
+                    <%= f.text_field :title, :size => 50 %>
+                </div>
                 <div class="field">
-                    <%= f.label :body %>
+                    <%= f.label :投稿内容 %>
                     <%= f.text_area :body, :size => 70 %>
                 </div>
                 <%= f.submit "Tweetする" %>
@@ -47,4 +62,4 @@
 </div>
 
 <%# Javascriptを適応 %>
- <%= javascript_pack_tag 'tweet/index' %>
+<%= javascript_pack_tag 'tweet/index' %>

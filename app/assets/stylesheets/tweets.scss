@@ -33,6 +33,10 @@
 
     &__title{
         margin-left:40px;
+        & .logo_My{
+            color:purple
+        }
+       
     }
 
     &__ul{
@@ -52,6 +56,36 @@
     }
 
 }
+
+//tweets表示部分
+h3{
+    margin-bottom:30px;
+}
+
+.tweets-container {
+    width: 50%;
+    margin: 10px auto;
+
+    & .tweet{
+        border-top:solid #00acee;
+        margin-top:10px;
+        padding-top:8px;
+    }
+    // left-containerとright-containerを紐づける
+    & .main-box{
+        display:flex;
+        justify-content: space-between;
+        & .left-container{
+            & span{
+                padding-right:20px;
+            }
+        }
+
+    }
+}
+
+
+
 
 //Tweet投稿ボタン  
 .tweet-button{
@@ -77,18 +111,26 @@
     height:100vh;
     opacity: 0;
     transition:opacity 1s;
-    cursor:pointer;
 
+    &.up{
+        opacity:1;
+        z-index:20;
+        background-color:rgba(0, 0, 0, 0.5);
+        transition:opacity 1s;
+    } 
+    
+    //投稿画面を後ろに戻すクローズボタン
     & .close__btn{
         position:fixed;
         top:15%;
         left:80%;
         width:50px;
         height:50px;
-        border:2px solid black;
-        background-color: white;
+        background-color:rgba(0, 0, 0, 0.5);
+        cursor:pointer;
+   
         & > span {
-            background-color: black;
+            background-color: white;
             width: 100%;
             height: 5px;
             display: block;
@@ -104,25 +146,46 @@
             }
         }
     }
-
-    &.up{
-        opacity:1;
-        z-index:20;
-        background-color:rgba(0, 0, 0, 0.5);
-        transition:opacity 1s;
-    } 
     
+    //投稿フォーム
     & .post-form{
-        background-color:white;
+        
         position:absolute;
         top:50%;
         left:50%;
         transform:translate(-50%,-50%);
         width:50%;
         height:50%;
-        border:2.0px solid black;
+        border:2.0px solid #d3def1;
+        background-color: #d3def1;
         z-index:30;
+        text-align: center;
     }
-
+& .form-title{
     
+    font-size: 32px;
+    font-weight: bold;
+    margin-top:10px;
+    margin-bottom: 50px;
+}
+  
+}
+
+
+//投稿フォームのサイズ調整
+input[type="text"] {
+    width: 95%;
+    height: 20px;
+  }
+
+input[type="submit"] {
+    width: 200px;
+    font-size: 20px;
+    margin-top: 50px;
+    margin-bottom: 30px;
+  }
+
+textarea{
+    width:95%;
+    height:60px
 }
